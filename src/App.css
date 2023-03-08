@@ -2,18 +2,18 @@
   height: 100vh;
 }
 
-.todo-container {
+.todoContainer {
   height: 100vh;
   display: flex;
-  align-items: center;
   overflow-y: hidden;
 }
 
-.todo-body {
+.todoBody {
   width: 100%;
   background-color: #f8f9fd;
   padding: 2rem;
   margin: 5%;
+  text-align: center;
   box-shadow: 3px 10px 13px -2px rgba(0, 0, 0, 0.27);
 }
 
@@ -87,6 +87,31 @@
   background-color: #f8f9fd;
   border: none;
   vertical-align: middle;
+}
+
+.navbar {
+  background-color: #017bfe;
+  width: 20%;
+  height: 100%;
+  padding: 2rem;
+  /* margin: auto; */
+}
+
+.navbar ul {
+  list-style-type: none;
+}
+
+.navbar li {
+  font-size: 25px;
+  color: white;
+  font-weight: 700;
+  margin-bottom: 20px;
+  cursor: pointer;
+  margin-right: 4rem;
+}
+
+.navbar li:hover {
+  text-decoration: none;
 }
 
 /* .App-logo {

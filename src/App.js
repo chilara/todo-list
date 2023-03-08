@@ -1,10 +1,10 @@
 import "./App.css";
-import ToDoContainer from "./components/ToDoContainer";
+import AllRoutes from "./route/AllRoutes";
 
 function App() {
   return (
     <div className="App">
-      <ToDoContainer />
+      <AllRoutes />
     </div>
   );
 }

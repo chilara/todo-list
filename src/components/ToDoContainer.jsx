@@ -1,20 +1,19 @@
-import React from 'react'
-import NavBar from './NavBar';
-import Header from './Header';
-import InputToDo from './InputToDo';
-import ToDoList from './ToDoList';
+import React from "react";
+import NavBar from "./NavBar";
+import Header from "./Header";
+import InputToDo from "./InputToDo";
 
 const ToDoContainer = () => {
   return (
-    <div className='todo-container'>
-        <NavBar/>
-        <div className='todo-body'>
-        <Header/>
-        <InputToDo/>
+    <div className="todoContainer">
+      <NavBar />
+      <div className="todoBody">
+        <Header />
+        <InputToDo />
         {/* <ToDoList/> */}
-        </div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default ToDoContainer
+export default ToDoContainer;
