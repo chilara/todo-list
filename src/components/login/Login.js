@@ -38,7 +38,7 @@ const Login = () => {
             isSubmitting,
           }) => (
             <form>
-              <div style={{ marginBottom: "40px", marginTop: "70px" }}>
+              <div style={{ marginBottom: "35px", marginTop: "70px" }}>
                 <h1
                   style={{
                     color: "#017bfe",
@@ -112,7 +112,7 @@ const Login = () => {
         <button
           style={{
             backgroundColor: "#017bfe",
-            //   width: "98px",
+            width: "31.5%",
             height: "43px",
             color: "white",
             padding: "8px 24px",
