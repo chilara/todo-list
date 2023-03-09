@@ -10,7 +10,6 @@ const ToDoContainer = () => {
       <div className="todoBody">
         <Header />
         <InputToDo />
-        {/* <ToDoList/> */}
       </div>
     </div>
   );

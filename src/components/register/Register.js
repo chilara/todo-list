@@ -2,6 +2,7 @@ import { Formik } from "formik";
 import * as yup from "yup";
 import React from "react";
 import NavBar from "../NavBar";
+import axios from "axios";
 
 const Register = () => {
   const initialValues = {
@@ -27,6 +28,29 @@ const Register = () => {
           validationSchema={validationSchema}
           onSubmit={async (values, { setSubmitting }) => {
             console.log(values);
+            var config = {
+              method: "post",
+              url: "https://jwt-project.onrender.com/register",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              data: values,
+            };
+
+            try {
+              const response = await axios(config);
+              console.log(JSON.stringify(response.data));
+              localStorage.setItem("token", response.data.token);
+            } catch (error) {
+              console.log(error);
+            }
+            // axios(config)
+            //   .then(function (response) {
+            //     console.log(JSON.stringify(response.data));
+            //   })
+            //   .catch(function (error) {
+            //     console.log(error);
+            //   });
           }}
         >
           {({
@@ -40,7 +64,7 @@ const Register = () => {
             setFieldTouched,
             isSubmitting,
           }) => (
-            <form>
+            <form onSubmit={handleSubmit}>
               <div style={{ marginBottom: "30px" }}>
                 <h1
                   style={{
@@ -57,8 +81,11 @@ const Register = () => {
                 {/* <label>First Name</label> */}
                 <input
                   type="text"
+                  value={values.first_name}
                   placeholder="FIRST NAME"
                   name="first_name"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
                   style={{
                     outline: "none",
                     width: "30%",
@@ -73,14 +100,19 @@ const Register = () => {
                     marginBottom: "15px",
                   }}
                 />
-                <small>{touched.first_name && errors.first_name}</small>
+                <small style={{ display: "block" }}>
+                  {touched.first_name && errors.first_name}
+                </small>
               </div>
               <div>
                 {/* <label>Last Name</label> */}
                 <input
                   type="text"
+                  value={values.last_name}
                   placeholder="LAST NAME"
                   name="last_name"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
                   style={{
                     outline: "none",
                     width: "30%",
@@ -95,14 +127,19 @@ const Register = () => {
                     marginBottom: "15px",
                   }}
                 />
-                <small>{touched.last_name && errors.last_name}</small>
+                <small style={{ display: "block" }}>
+                  {touched.last_name && errors.last_name}
+                </small>
               </div>
               <div>
                 {/* <label>Email</label> */}
                 <input
                   type="email"
+                  value={values.email}
                   name="email"
                   placeholder="EMAIL"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
                   style={{
                     outline: "none",
                     width: "30%",
@@ -117,14 +154,19 @@ const Register = () => {
                     marginBottom: "15px",
                   }}
                 />
-                <small>{touched.email && errors.email}</small>
+                <small style={{ display: "block" }}>
+                  {touched.email && errors.email}
+                </small>
               </div>
               <div>
                 {/* <label>Password</label> */}
                 <input
                   type="password"
+                  value={values.password}
                   name="password"
                   placeholder="PASSWORD"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
                   style={{
                     outline: "none",
                     width: "30%",
@@ -139,7 +181,9 @@ const Register = () => {
                     marginBottom: "17px",
                   }}
                 />
-                <small>{touched.password && errors.password}</small>
+                <small style={{ display: "block" }}>
+                  {touched.password && errors.password}
+                </small>
               </div>
               <button
                 style={{
@@ -155,6 +199,7 @@ const Register = () => {
                   cursor: "pointer",
                   boxShadow: "4px 4px 10px rgba(0, 0, 0, 0.075)",
                 }}
+                type="submit"
               >
                 SIGN UP
               </button>
